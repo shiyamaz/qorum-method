@@ -7,7 +7,7 @@
 
 **Status:** v0. Tool-agnostic; works with Claude Code, Cursor, Codex, or plain humans.
 
-🇯🇵 **日本語の概要:** [`docs/ja/overview.md`](docs/ja/overview.md) — Qorum は、AIに何を任せるかではなく、**AIに何を決めさせないか** を決める方法です。
+🇯🇵 **日本語版:** [`README.ja.md`](README.ja.md) — Qorum は、AIに何を任せるかではなく、**AIに何を決めさせないか** を決める方法です。
 
 📍 **See it in action:** [`docs/cases.md`](docs/cases.md) — concrete examples of what the gate actually stops, plus the record of running it on this repo itself.
 
@@ -37,6 +37,20 @@ Separate three **roles** — Implementer, Reviewer, Approver — and classify ev
 The single load-bearing invariant: **the Reviewer may clear Low and Medium, but only the human Approver clears High.** Everything else is detail you can tune.
 
 > Roles are not accounts. You can run all three as yourself with discipline, or map them to separate identities (e.g. distinct GitHub accounts + branch protection) for hard enforcement. See [`docs/identity-hardening.md`](docs/identity-hardening.md). Start with roles; harden later.
+
+## How it flows
+
+```mermaid
+flowchart TD
+    C["Change / proposal"] --> I["Implementer<br/>(an AI, or you)"]
+    I --> R["Reviewer<br/>(a different agent, or you —<br/>a checker, not an architect)"]
+    R --> T{"Risk tier?"}
+    T -->|"🟢 Low"| L["Self-merge after review"]
+    T -->|"🟡 Medium"| M["Review → notify → cooldown → merge"]
+    T -->|"🔴 High"| H["Human Approver decides<br/>(self-merge forbidden)"]
+```
+
+One change in; a tier out. Low and Medium self-merge after review; **High stops and waits for a human.**
 
 ## The risk gate
 
