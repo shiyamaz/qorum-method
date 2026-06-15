@@ -7,6 +7,8 @@
 
 **Status:** v0. Tool-agnostic; works with Claude Code, Cursor, Codex, or plain humans.
 
+🇯🇵 **日本語の概要:** [`docs/ja/overview.md`](docs/ja/overview.md) — Qorum は、AIに何を任せるかではなく、**AIに何を決めさせないか** を決める方法です。
+
 ---
 
 ## The problem
