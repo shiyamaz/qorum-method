@@ -89,7 +89,7 @@ Qorum is a convention your agents follow, not a program you install — nothing 
 2. Copy [`examples/qorum.yml`](examples/qorum.yml) to `.qorum.yml` at your repo root and edit the thresholds + protected paths.
 3. (Optional, recommended once it's working) Enforce in the platform, not just in prose: branch protection requiring 1 approval, dismiss-stale-approvals, block force-push. See [`docs/identity-hardening.md`](docs/identity-hardening.md).
 
-That's it. You now have a reviewer who moves fast on the safe 80% and is barred from waving through the dangerous 20% — by rule now, by branch protection once you add it.
+That's it. You now have a reviewer who moves fast on the routine majority of changes and is barred from waving through the genuinely risky ones — by rule now, by branch protection once you add it.
 
 ## Why this exists
 

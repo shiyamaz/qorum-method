@@ -18,7 +18,7 @@ identities and let the platform refuse the violations for you.
 Because the Implementer and Reviewer are different accounts, "the author can't approve their own work"
 stops being a rule you remember and becomes a thing the platform enforces.
 
-## GitHub branch protection (works on GitHub's free tier — verified 2026-06; confirm current limits, plan features change)
+## GitHub branch protection (works on GitHub's free tier at time of writing — confirm current limits, since plan features change)
 
 On `main`, a ruleset with:
 

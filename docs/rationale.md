@@ -34,7 +34,7 @@ What survived contact with reality was narrow and boring — which is what makes
    the loop precisely — and only — where it matters.
 
 4. **The bias is always toward the safer tier.** When in doubt, escalate. The cost of an unnecessary
-   60-second cooldown is nothing. The cost of a wrongly-Low'd secret change can be unrecoverable.
+   60-second cooldown is trivial. The cost of a wrongly-Low'd secret change can be unrecoverable.
 
 ## The honest part
 
