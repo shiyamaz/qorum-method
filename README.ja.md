@@ -40,13 +40,26 @@ AIと速く進めるほど、二つの失敗が絡み合います。
 ## 流れ
 
 ```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'-apple-system, SF Pro Text, Hiragino Sans, sans-serif','lineColor':'#aeaeb2','primaryTextColor':'#1d1d1f','primaryBorderColor':'#d2d2d7'}}}%%
 flowchart TD
     C["変更 / 提案"] --> I["実装役<br/>(AI または自分)"]
     I --> R["レビュー役<br/>(別の主体 — 検査官であって設計者でない)"]
     R --> T{"リスク階層は?"}
-    T -->|"🟢 低"| L["レビュー後そのまま merge"]
-    T -->|"🟡 中"| M["レビュー → 通知 → 一拍 → merge"]
-    T -->|"🔴 高"| H["人間の承認役が決裁<br/>(自動 merge 禁止)"]
+    T -->|"低"| L["レビュー後そのまま merge"]
+    T -->|"中"| M["レビュー → 通知 → 一拍 → merge"]
+    T -->|"高"| H["人間の承認役が決裁<br/>(自動 merge 禁止)"]
+    classDef start fill:#f4f4f6,stroke:#dcdce0,color:#1d1d1f
+    classDef role fill:#ffffff,stroke:#d2d2d7,color:#1d1d1f
+    classDef dec fill:#f5f5f7,stroke:#d2d2d7,color:#1d1d1f
+    classDef low fill:#f0f6f2,stroke:#cde0d4,color:#1d1d1f
+    classDef med fill:#f8f6ee,stroke:#e4dfc8,color:#1d1d1f
+    classDef high fill:#f8f0f0,stroke:#e4cdcd,color:#1d1d1f,stroke-width:2px
+    class C start
+    class I,R role
+    class T dec
+    class L low
+    class M med
+    class H high
 ```
 
 変更が入り、階層が出る。低・中はレビュー後に自分で merge、**高は止まって人間を待つ。**

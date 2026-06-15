@@ -41,13 +41,26 @@ The single load-bearing invariant: **the Reviewer may clear Low and Medium, but 
 ## How it flows
 
 ```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'-apple-system, SF Pro Text, Hiragino Sans, sans-serif','lineColor':'#aeaeb2','primaryTextColor':'#1d1d1f','primaryBorderColor':'#d2d2d7'}}}%%
 flowchart TD
     C["Change / proposal"] --> I["Implementer<br/>(an AI, or you)"]
     I --> R["Reviewer<br/>(a different agent, or you —<br/>a checker, not an architect)"]
     R --> T{"Risk tier?"}
-    T -->|"🟢 Low"| L["Self-merge after review"]
-    T -->|"🟡 Medium"| M["Review → notify → cooldown → merge"]
-    T -->|"🔴 High"| H["Human Approver decides<br/>(self-merge forbidden)"]
+    T -->|"Low"| L["Self-merge after review"]
+    T -->|"Medium"| M["Review → notify → cooldown → merge"]
+    T -->|"High"| H["Human Approver decides<br/>(self-merge forbidden)"]
+    classDef start fill:#f4f4f6,stroke:#dcdce0,color:#1d1d1f
+    classDef role fill:#ffffff,stroke:#d2d2d7,color:#1d1d1f
+    classDef dec fill:#f5f5f7,stroke:#d2d2d7,color:#1d1d1f
+    classDef low fill:#f0f6f2,stroke:#cde0d4,color:#1d1d1f
+    classDef med fill:#f8f6ee,stroke:#e4dfc8,color:#1d1d1f
+    classDef high fill:#f8f0f0,stroke:#e4cdcd,color:#1d1d1f,stroke-width:2px
+    class C start
+    class I,R role
+    class T dec
+    class L low
+    class M med
+    class H high
 ```
 
 One change in; a tier out. Low and Medium self-merge after review; **High stops and waits for a human.**
