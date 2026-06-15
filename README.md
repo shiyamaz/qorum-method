@@ -122,6 +122,11 @@ Qorum is a convention your agents follow, not a program you install — nothing 
 
 That's it. You now have a reviewer who moves fast on the routine majority of changes and is barred from waving through the genuinely risky ones — by rule now, by branch protection once you add it.
 
+## Tools & integrations
+
+- **[`tools/qorum_classify.py`](tools/qorum_classify.py)** — the mechanical gate: classify a change's tier from a git diff + `.qorum.yml`. The config you copied, finally with a consumer ([`tools/README.md`](tools/README.md)).
+- **[`skill/qorum/`](skill/qorum/SKILL.md)** — a Claude skill: apply the same risk-tier gate to any decision, not just code (strategy, hiring, a draft) — for when there's no diff to count.
+
 ## Beyond code
 
 Code is where this is easiest to *show* — pull request, review, merge is a pipeline that already exists, with a concrete artifact (the diff) and a concrete action (the merge). But the gate isn't really about code. It's about **which conclusions you let an AI reach on its own, and which ones a human still has to ratify.**
