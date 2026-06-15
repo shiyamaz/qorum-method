@@ -1,0 +1,62 @@
+# .qorum.yml — copy to your repo root and tune.
+# Consumed by humans and agents to classify a PR's risk tier (the quorum it needs to merge).
+# This file is a spec/convention, not a binary — there is no required runtime.
+# Enforce the hard cases in your platform too (branch protection); see docs/identity-hardening.md.
+
+version: 0
+
+# Protected paths: a wrong change here is hard or impossible to undo.
+# ANY touched path matching these forces tier = High, regardless of size.
+protected_paths:
+  - ".github/workflows/**"   # CI/CD — can exfiltrate secrets or ship anything
+  - ".gitignore"
+  - "**/*.env"
+  - "**/*.key"
+  - "**/*.pem"
+  - "**/secrets/**"
+  - "package.json"           # dependency surface
+  - "package-lock.json"
+  - "yarn.lock"
+  - "pnpm-lock.yaml"
+  - "requirements.txt"
+  - "pyproject.toml"
+  - "**/migrations/**"       # schema/data migrations
+  - "infra/**"               # IaC
+  - "terraform/**"
+  - ".qorum.yml"             # the gate must not lower its own bar unwatched
+
+# Labels that force a tier regardless of size.
+critical_labels: [priority-critical, breaking, migration, security]
+low_risk_labels: [docs, chore, priority-low, dependencies-patch]
+
+tiers:
+  low:        # self-merge after review
+    max_changed_files: 5
+    max_deletions: 0
+    allow_binaries: false
+    requires_low_risk_label: true   # set false if you'd rather gate purely on size+paths
+
+  medium:     # self-merge after review + cooldown + notify
+    max_changed_files: 20
+    max_deletions: 3
+    cooldown_seconds: 60            # your STOP window before merge
+    notify: true
+
+  high: {}    # everything else, or any protected_path / critical_label / binary — human Approver only
+
+# Bias rule: if a PR doesn't clearly satisfy a lower tier, it belongs to the next higher one.
+default_when_unsure: medium
+
+self_merge_preconditions:
+  require_reviewer_approval: true
+  reviewer_must_differ_from_author: true
+  block_on_unresolved_change_requests: true
+  merge_method: squash
+  delete_branch_on_merge: true
+  require_checks_pass: true
+
+reviewer:
+  max_diff_lines: 500             # above this, summarize or split before review
+  max_output_words: 300
+  checklist: [diff_validity, rule_violations, risk_tier, regression_risk, inconsistency]
+  may_propose_new_design: false
