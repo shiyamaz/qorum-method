@@ -81,6 +81,20 @@ Before an Implementer self-merges, **all** of:
 - Delete the branch on merge
 - Checks pass
 
+## Beyond code
+
+Code is where this is easiest to *show* — pull request, review, merge is a pipeline that already exists, with a concrete artifact (the diff) and a concrete action (the merge). But the gate isn't really about code. It's about **which conclusions you let an AI reach on its own, and which ones a human still has to ratify.**
+
+The same three tiers map onto any AI-assisted decision — strategy, hiring, a customer doc, a pricing call:
+
+| Tier | Decisions | How far the AI goes |
+|---|---|---|
+| 🟢 Low | wording, option mapping, comparison tables, research notes | AI proposes and AI reviews — adopt the result |
+| 🟡 Medium | tactics, prioritization, customer-facing material, hiring criteria | AI reviews, then a human glances / sleeps on it |
+| 🔴 High | strategy, pricing, people, irreversible legal / financial / brand calls | AI advises only — a human decides |
+
+> **Honest scope:** the code gate is the part that's been run hard (see [`docs/rationale.md`](docs/rationale.md)). The decision mapping is the same shape generalized — a direction, not a validated playbook for every domain. Derive your own tiers from what's reversible in *your* work. Full treatment in [`docs/beyond-code.md`](docs/beyond-code.md).
+
 ## Quickstart
 
 Qorum is a convention your agents follow, not a program you install — nothing runs on its own. Enforcement is your agents' compliance, plus (optionally) branch protection.
