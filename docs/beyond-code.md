@@ -14,7 +14,7 @@ Code review is the most legible instance of Qorum, not its boundary. A pull requ
 | Protected paths | The irreversible domains — money, people, brand, legal |
 | Human Approver | You, on the High-tier calls — and only those |
 
-The load-bearing rule is unchanged: **the AI reviewer can clear the low-stakes calls; the irreversible ones a human ratifies.**
+The load-bearing rule is unchanged: **an AI reviewer can clear the low-stakes calls, a human still eyeballs the middling ones, and the irreversible ones only a human ratifies.**
 
 ## Tiers, for decisions
 

@@ -83,6 +83,16 @@ Before an Implementer self-merges, **all** of:
 - Delete the branch on merge
 - Checks pass
 
+## Quickstart
+
+Qorum is a convention your agents follow, not a program you install — nothing runs on its own. Enforcement is your agents' compliance, plus (optionally) branch protection.
+
+1. Copy [`AGENTS.md`](AGENTS.md) into your repo (or its contents into `CLAUDE.md` / `.cursor/rules/`). This teaches your agents the roles, the gate, and the Reviewer checklist.
+2. Copy [`examples/qorum.yml`](examples/qorum.yml) to `.qorum.yml` at your repo root and edit the thresholds + protected paths.
+3. (Optional, recommended once it's working) Enforce in the platform, not just in prose: branch protection requiring 1 approval, dismiss-stale-approvals, block force-push. See [`docs/identity-hardening.md`](docs/identity-hardening.md).
+
+That's it. You now have a reviewer who moves fast on the routine majority of changes and is barred from waving through the genuinely risky ones — by rule now, by branch protection once you add it.
+
 ## Beyond code
 
 Code is where this is easiest to *show* — pull request, review, merge is a pipeline that already exists, with a concrete artifact (the diff) and a concrete action (the merge). But the gate isn't really about code. It's about **which conclusions you let an AI reach on its own, and which ones a human still has to ratify.**
@@ -96,16 +106,6 @@ The same three tiers map onto any AI-assisted decision — strategy, hiring, a c
 | 🔴 High | strategy, pricing, people, irreversible legal / financial / brand calls | AI advises only — a human decides |
 
 > **Honest scope:** the code gate is the part that's been run hard (see [`docs/rationale.md`](docs/rationale.md)). The decision mapping is the same shape generalized — a direction, not a validated playbook for every domain. Derive your own tiers from what's reversible in *your* work. Full treatment in [`docs/beyond-code.md`](docs/beyond-code.md).
-
-## Quickstart
-
-Qorum is a convention your agents follow, not a program you install — nothing runs on its own. Enforcement is your agents' compliance, plus (optionally) branch protection.
-
-1. Copy [`AGENTS.md`](AGENTS.md) into your repo (or its contents into `CLAUDE.md` / `.cursor/rules/`). This teaches your agents the roles, the gate, and the Reviewer checklist.
-2. Copy [`examples/qorum.yml`](examples/qorum.yml) to `.qorum.yml` at your repo root and edit the thresholds + protected paths.
-3. (Optional, recommended once it's working) Enforce in the platform, not just in prose: branch protection requiring 1 approval, dismiss-stale-approvals, block force-push. See [`docs/identity-hardening.md`](docs/identity-hardening.md).
-
-That's it. You now have a reviewer who moves fast on the routine majority of changes and is barred from waving through the genuinely risky ones — by rule now, by branch protection once you add it.
 
 ## Why this exists
 
