@@ -13,7 +13,7 @@ The problem is the small fraction that **isn't** fine — and looks identical on
 - a dependency bump that quietly pulls in something new
 - a 1,500-line refactor the reviewer only skimmed
 
-To a fast AI reviewer, all of these arrive as confident green checkmarks. Qorum's answer isn't "review harder." It's: **classify every change by risk, let the safe ones flow, and make the dangerous ones — anything touching CI, secrets, dependencies, migrations, or anything irreversible — stop and wait for a human.** The reviewer AI is structurally not allowed to clear those.
+To a fast AI reviewer, all of these arrive as confident green checkmarks. Qorum's answer isn't "review harder." It's: **classify every change by risk, let the safe ones flow, and make the dangerous ones — anything touching CI, secrets, dependencies, migrations, or anything irreversible — stop and wait for a human.** The reviewer AI is not allowed to clear those — by rule, and with branch protection, it can't.
 
 That's the whole thing: **the safe majority moves at AI speed; the risky few can't be waved through.**
 

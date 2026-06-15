@@ -9,7 +9,7 @@
 
 🇯🇵 **日本語の概要:** [`docs/ja/overview.md`](docs/ja/overview.md) — Qorum は、AIに何を任せるかではなく、**AIに何を決めさせないか** を決める方法です。
 
-📍 **See it in action:** [`docs/cases.md`](docs/cases.md) — what the gate is *for*, in plain terms, and what happened when this repo's own gate was run on itself.
+📍 **See it in action:** [`docs/cases.md`](docs/cases.md) — concrete examples of what the gate actually stops, plus the record of running it on this repo itself.
 
 ---
 
