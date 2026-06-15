@@ -19,9 +19,9 @@ Read `.qorum.yml` for this repo's thresholds and protected paths. Default logic:
 
 - **🟢 Low** — `changed_files ≤ 5`, no deletions, no binaries, no protected path, low-risk label → self-merge after review.
 - **🟡 Medium** — `changed_files ≤ 20`, `deletions ≤ 3`, no protected path → review, then notify, then wait the cooldown, then self-merge.
-- **🔴 High** — `>20` files, `≥5` deletions, `>1000` diff lines, **any protected path**, binaries, or a critical label → **human Approver required. Do not self-merge.**
+- **🔴 High** — `>20` files, `≥4` deletions, `>1000` diff lines, **any protected path**, binaries, or a critical label → **human Approver required. Do not self-merge.**
 
-**When unsure, treat as Medium. Never silently downgrade to Low.**
+**When unsure, escalate — never downgrade: Low↔Medium → Medium, Medium↔High → High.**
 
 ## Self-merge preconditions (Low & Medium only)
 

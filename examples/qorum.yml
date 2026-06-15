@@ -1,5 +1,5 @@
 # .qorum.yml — copy to your repo root and tune.
-# Consumed by humans and agents to classify a PR's risk tier (the quorum it needs to merge).
+# Consumed by humans and agents to classify a PR's risk tier — the bar a PR must clear to merge.
 # This file is a spec/convention, not a binary — there is no required runtime.
 # Enforce the hard cases in your platform too (branch protection); see docs/identity-hardening.md.
 
@@ -7,6 +7,7 @@ version: 0
 
 # Protected paths: a wrong change here is hard or impossible to undo.
 # ANY touched path matching these forces tier = High, regardless of size.
+# These are examples — extend with your stack's equivalents (Dockerfile, go.mod, Gemfile, Cargo.toml, .npmrc, CI secrets, ...).
 protected_paths:
   - ".github/workflows/**"   # CI/CD — can exfiltrate secrets or ship anything
   - ".gitignore"
@@ -42,10 +43,10 @@ tiers:
     cooldown_seconds: 60            # your STOP window before merge
     notify: true
 
-  high: {}    # everything else, or any protected_path / critical_label / binary — human Approver only
+  high: {}    # everything past Medium's limits (incl. deletions > 3), or any protected_path / critical_label / binary — human Approver only
 
-# Bias rule: if a PR doesn't clearly satisfy a lower tier, it belongs to the next higher one.
-default_when_unsure: medium
+# Bias rule: if a PR doesn't clearly satisfy a lower tier, it belongs to the next higher one — never downgrade.
+default_when_unsure: medium   # scopes Low-vs-Medium ambiguity; Medium-vs-High ambiguity always escalates to High
 
 self_merge_preconditions:
   require_reviewer_approval: true

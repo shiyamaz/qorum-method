@@ -16,7 +16,7 @@ You ship with AI agents now. One writes the code, maybe another reviews it. That
 1. **You are the only human.** A solo dev has no second pair of eyes. "Just review your own PRs" is the discipline everyone says they have and nobody keeps at 11pm.
 2. **An AI reviewer that can approve anything is worse than no reviewer.** If your automated reviewer rubber-stamps a `.github/workflows` change, a secret-handling tweak, or a 2,000-line refactor, you have *manufactured* the feeling of review without the substance of it.
 
-The usual answers are "add a human reviewer" (you don't have one) or "trust the AI" (you shouldn't, uniformly). The Qorum Method is the third answer: **decide, per change, how much autonomy is safe — and make the unsafe cases physically require a human.**
+The usual answers are "add a human reviewer" (you don't have one) or "trust the AI" (you shouldn't, uniformly). The Qorum Method is the third answer: **decide, per change, how much autonomy is safe — and make the unsafe cases require a human sign-off — and, once you harden it, physically so.**
 
 ## The idea in one paragraph
 
@@ -51,14 +51,14 @@ All of:
 
 ### 🔴 High — human Approver required (self-merge forbidden)
 Any of:
-- `changed_files > 20`, `deletions ≥ 5`, or `diff_lines > 1000`
+- `changed_files > 20`, `deletions ≥ 4` (anything past Medium's limit), or `diff_lines > 1000`
 - touches a **protected path** (see below)
 - adds binaries; carries a critical label (`priority-critical`, `breaking`, `migration`, …)
 
 **Protected paths** are the things a wrong change can't be undone from. Sensible defaults:
-`.github/workflows/**` · CI/CD config · `**/*.env`, `*.key`, `*.pem`, anything auth/secret · dependency manifests (`package.json`, `requirements.txt`, lockfiles) · DB migrations · infra-as-code · `.gitignore` · **the gate config itself**.
+`.github/workflows/**` · CI/CD config · `**/*.env`, `*.key`, `*.pem`, anything auth/secret · dependency manifests (`package.json`, `requirements.txt`, lockfiles) · DB migrations · infra-as-code · `.gitignore` · **the gate config itself**. The list in [`examples/qorum.yml`](examples/qorum.yml) is a starting point — extend it with your stack's equivalents.
 
-> **When in doubt, it's Medium.** Never silently downgrade to Low. The bias is always toward the safer tier.
+> **When in doubt, escalate — never silently downgrade.** Unsure between Low and Medium → Medium; unsure between Medium and High → High. The bias is always toward the safer tier.
 
 ## The Reviewer is a checker, not an architect
 
@@ -83,11 +83,13 @@ Before an Implementer self-merges, **all** of:
 
 ## Quickstart
 
+Quorum is a convention your agents follow, not a program you install — nothing runs on its own. Enforcement is your agents' compliance, plus (optionally) branch protection.
+
 1. Copy [`AGENTS.md`](AGENTS.md) into your repo (or its contents into `CLAUDE.md` / `.cursor/rules/`). This teaches your agents the roles, the gate, and the Reviewer checklist.
 2. Copy [`examples/qorum.yml`](examples/qorum.yml) to `.qorum.yml` at your repo root and edit the thresholds + protected paths.
 3. (Optional, recommended once it's working) Enforce in the platform, not just in prose: branch protection requiring 1 approval, dismiss-stale-approvals, block force-push. See [`docs/identity-hardening.md`](docs/identity-hardening.md).
 
-That's it. You now have a reviewer who can move fast on the safe 80% and physically cannot wave through the dangerous 20%.
+That's it. You now have a reviewer who moves fast on the safe 80% and won't wave through the dangerous 20% — and once you add branch protection, can't.
 
 ## Why this exists
 

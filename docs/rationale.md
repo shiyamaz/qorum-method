@@ -33,8 +33,8 @@ What survived contact with reality was narrow and boring, which is why it works:
    the safe tiers and is *structurally forbidden* from clearing the dangerous one. The human stays in
    the loop precisely — and only — where it matters.
 
-4. **The bias is always toward the safer tier.** "When in doubt, Medium." The cost of an unnecessary
-   60-second cooldown is nothing. The cost of a wrongly-Low'd secret change is everything.
+4. **The bias is always toward the safer tier.** When in doubt, escalate. The cost of an unnecessary
+   60-second cooldown is nothing. The cost of a wrongly-Low'd secret change can be unrecoverable.
 
 ## The honest part
 
