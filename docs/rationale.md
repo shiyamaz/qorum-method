@@ -19,7 +19,7 @@ of review without its substance — which is more dangerous than no review, beca
 
 ## The thing that was left standing
 
-What survived contact with reality was narrow and boring, which is why it works:
+What survived contact with reality was narrow and boring — which is what makes it hard to wriggle out of:
 
 1. **Roles, not vibes.** The one who writes is not the one who clears. Even if both are "me," the
    separation has to be structural, because the author is the worst judge of their own change.

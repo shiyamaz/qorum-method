@@ -21,6 +21,13 @@ protected_paths:
   - "pnpm-lock.yaml"
   - "requirements.txt"
   - "pyproject.toml"
+  - "go.mod"
+  - "go.sum"
+  - "Cargo.toml"
+  - "Cargo.lock"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "composer.json"
   - "**/migrations/**"       # schema/data migrations
   - "infra/**"               # IaC
   - "terraform/**"
@@ -34,12 +41,14 @@ tiers:
   low:        # self-merge after review
     max_changed_files: 5
     max_deletions: 0
+    max_diff_lines: 1000
     allow_binaries: false
     requires_low_risk_label: true   # set false if you'd rather gate purely on size+paths
 
   medium:     # self-merge after review + cooldown + notify
     max_changed_files: 20
     max_deletions: 3
+    max_diff_lines: 1000            # over this -> High, even with few files
     cooldown_seconds: 60            # your STOP window before merge
     notify: true
 
@@ -57,7 +66,7 @@ self_merge_preconditions:
   require_checks_pass: true
 
 reviewer:
-  max_diff_lines: 500             # above this, summarize or split before review
+  max_diff_lines: 500             # review ergonomics: summarize/split above this. Distinct from the High-tier diff_lines>1000 trigger.
   max_output_words: 300
   checklist: [diff_validity, rule_violations, risk_tier, regression_risk, inconsistency]
   may_propose_new_design: false

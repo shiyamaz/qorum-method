@@ -50,4 +50,4 @@ Separate clones (or separate auth configs) per identity avoid cross-contaminatin
   is the high-leverage step — it makes self-approval *impossible*, not just discouraged.
 - **Small team:** same, plus map real teammates onto the Approver role.
 
-Start at convention. Harden the day a near-miss scares you — and it will.
+Start at convention. Harden it the day a near-miss scares you — and sooner or later, one will.

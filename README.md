@@ -20,7 +20,7 @@ The usual answers are "add a human reviewer" (you don't have one) or "trust the 
 
 ## The idea in one paragraph
 
-Separate three **roles** — Implementer, Reviewer, Approver — and classify every change into a **risk tier**. Low-risk changes self-merge after an automated review. Medium-risk changes self-merge after review plus a short cooldown and a notification. High-risk changes — large diffs, protected paths, anything that can hurt you — **cannot merge without the human Approver**, and the automated Reviewer is *not allowed to clear them*. The gate is the part you can't talk yourself out of at 11pm.
+Separate three **roles** — Implementer, Reviewer, Approver — and classify every change into a **risk tier**. Low-risk changes self-merge after an automated review. Medium-risk changes self-merge after review plus a short cooldown and a notification. High-risk changes — large diffs, protected paths, anything that can hurt you — **must not merge without the human Approver**, and the automated Reviewer is *not allowed to clear them*. The gate is the part you can't talk yourself out of at 11pm.
 
 ## The three roles
 
@@ -83,13 +83,13 @@ Before an Implementer self-merges, **all** of:
 
 ## Quickstart
 
-Quorum is a convention your agents follow, not a program you install — nothing runs on its own. Enforcement is your agents' compliance, plus (optionally) branch protection.
+Qorum is a convention your agents follow, not a program you install — nothing runs on its own. Enforcement is your agents' compliance, plus (optionally) branch protection.
 
 1. Copy [`AGENTS.md`](AGENTS.md) into your repo (or its contents into `CLAUDE.md` / `.cursor/rules/`). This teaches your agents the roles, the gate, and the Reviewer checklist.
 2. Copy [`examples/qorum.yml`](examples/qorum.yml) to `.qorum.yml` at your repo root and edit the thresholds + protected paths.
 3. (Optional, recommended once it's working) Enforce in the platform, not just in prose: branch protection requiring 1 approval, dismiss-stale-approvals, block force-push. See [`docs/identity-hardening.md`](docs/identity-hardening.md).
 
-That's it. You now have a reviewer who moves fast on the safe 80% and won't wave through the dangerous 20% — and once you add branch protection, can't.
+That's it. You now have a reviewer who moves fast on the safe 80% and is barred from waving through the dangerous 20% — by rule now, by branch protection once you add it.
 
 ## Why this exists
 
