@@ -23,6 +23,8 @@ Read `.qorum.yml` for this repo's thresholds and protected paths. Default logic:
 
 **When unsure, escalate — never downgrade: Low↔Medium → Medium, Medium↔High → High.**
 
+**Scope:** this gate is per-change. Cumulative risk across changes — several Low changes hitting the same secret, customer, release, or budget — is out of scope from a single diff; escalate that at the portfolio level (a human reviewing everything in flight), not here.
+
 ## Self-merge preconditions (Low & Medium only)
 
 All of: Reviewer approved (≥1, different role than author) · no unresolved change-requests · squash merge · delete branch on merge · checks pass.

@@ -127,6 +127,14 @@ That's it. You now have a reviewer who moves fast on the routine majority of cha
 - **[`tools/qorum_classify.py`](tools/qorum_classify.py)** — the mechanical gate: classify a change's tier from a git diff + `.qorum.yml`. The config you copied, finally with a consumer ([`tools/README.md`](tools/README.md)).
 - **[`skill/qorum/`](skill/qorum/SKILL.md)** — a Claude skill: apply the same risk-tier gate to any decision, not just code (strategy, hiring, a draft) — for when there's no diff to count.
 
+## Composition — what per-change tiering misses
+
+Qorum classifies one change at a time. Its blind spot: **risk also accumulates.** Several Low changes that touch the same secret, customer, release, or budget can become Medium or High together, even when no single change trips a tier.
+
+Pair the gate with a layer above it: a regular portfolio review of everything in flight against the surfaces you cannot easily undo. When individually safe changes converge on one irreversible thing — one secret, one customer, one brand, one launch, one pool of money — escalate at the aggregate level, regardless of each change's tier.
+
+*(Raised by a sharp reader.)*
+
 ## Beyond code
 
 Code is where this is easiest to *show* — pull request, review, merge is a pipeline that already exists, with a concrete artifact (the diff) and a concrete action (the merge). But the gate isn't really about code. It's about **which conclusions you let an AI reach on its own, and which ones a human still has to ratify.**
