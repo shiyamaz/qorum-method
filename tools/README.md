@@ -6,9 +6,14 @@ actually runs" piece — the `.qorum.yml` you copied finally has a consumer.
 
 ```bash
 pip install pyyaml
+
+# In a repo that has a .qorum.yml at its root:
 python3 tools/qorum_classify.py                       # vs merge-base with origin/main
 python3 tools/qorum_classify.py HEAD~1                 # vs a specific base
-python3 tools/qorum_classify.py --config .qorum.yml --labels docs,priority-low
+python3 tools/qorum_classify.py --labels docs,priority-low
+
+# Trying it inside THIS repo (the config ships under examples/, not the root):
+python3 tools/qorum_classify.py HEAD~1 --config examples/qorum.yml
 ```
 
 Output is one of `🟢 LOW`, `🟡 MEDIUM`, `🔴 HIGH`, the verdict (self-merge / cooldown /

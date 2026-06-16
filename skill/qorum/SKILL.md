@@ -19,6 +19,8 @@ Judge by two things only: **how reversible it is**, and **how costly if it's wro
 
 **Bias: when unsure, escalate — never downgrade.** Unsure between Low and Medium → Medium. Unsure between Medium and High → High. The cost of an unnecessary pause is small; the cost of a wrongly-cleared irreversible call can be unrecoverable.
 
+**Composition — decisions accumulate too.** This is per-decision, like the code gate. But risk also adds up: several Low or Medium decisions that converge on the same customer, budget, brand, or launch can be High *together*, even when no single one is. When you notice that convergence, escalate at the aggregate level — name the shared irreversible thing they're all touching, and treat the bundle by that.
+
 ## What to output
 1. **Tier** (Low / Medium / High), in one line, naming the single reason that set it.
 2. **Who decides:** AI settles it / AI reviews then a human glances / a human decides.

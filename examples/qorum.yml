@@ -1,6 +1,7 @@
 # .qorum.yml — copy to your repo root and tune.
 # Consumed by humans and agents to classify a PR's risk tier — the bar a PR must clear to merge.
-# This file is a spec/convention, not a binary — there is no required runtime.
+# This file is a spec/convention, not a binary — there is no required runtime
+# (an optional CLI consumer lives in tools/qorum_classify.py).
 # Enforce the hard cases in your platform too (branch protection); see docs/identity-hardening.md.
 
 version: 0
