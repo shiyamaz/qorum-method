@@ -31,4 +31,4 @@ The point isn't that the gate is perfect. It's that the blind spots were found, 
 
 ## The honest caveat
 
-The code gate above is the part that's been run hard. Pointing the same three tiers at non-code decisions — strategy, hiring, pricing — is the same *shape*, but it hasn't been battle-tested the same way (see [`beyond-code.md`](beyond-code.md)). Use the structure; derive your own tiers from what's genuinely reversible in your work.
+The code gate above is the part that's actually been exercised. Pointing the same three tiers at non-code decisions — strategy, hiring, pricing — is the same *shape*, but it hasn't been exercised the same way (see [`beyond-code.md`](beyond-code.md)). Use the structure; derive your own tiers from what's genuinely reversible in your work.

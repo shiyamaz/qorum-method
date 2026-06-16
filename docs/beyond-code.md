@@ -30,4 +30,4 @@ This is the inversion at the center of the whole method: the useful question isn
 
 ## A caution on honesty
 
-The code gate has been run hard. This generalization is the same shape pointed at a wider target — sound in structure, but you should derive your own tiers from what's genuinely reversible in your work, not import this table wholesale. The point isn't the example rows. It's the question: *which decisions have you been letting an AI make, just because it answered confidently?*
+The code gate has actually been exercised — run and corrected in the open. This generalization is the same shape pointed at a wider target — sound in structure, but you should derive your own tiers from what's genuinely reversible in your work, not import this table wholesale. The point isn't the example rows. It's the question: *which decisions have you been letting an AI make, just because it answered confidently?*

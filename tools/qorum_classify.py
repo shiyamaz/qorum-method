@@ -29,16 +29,25 @@ except ImportError:
     sys.exit("qorum-classify needs PyYAML:  pip install pyyaml")
 
 
-def sh(*args):
-    return subprocess.run(args, capture_output=True, text=True).stdout.strip()
+def git(*args, required=False):
+    """Run a git command. If `required` and it fails, exit non-zero (fail-closed)."""
+    p = subprocess.run(("git",) + args, capture_output=True, text=True)
+    if p.returncode != 0:
+        if required:
+            sys.exit(
+                f"git {' '.join(args)} failed (rc={p.returncode}): {p.stderr.strip()}\n"
+                "refusing to classify (fail-closed)."
+            )
+        return ""
+    return p.stdout.strip()
 
 
 def default_base():
     for cand in ("origin/main", "main"):
-        mb = sh("git", "merge-base", "HEAD", cand)
+        mb = git("merge-base", "HEAD", cand)
         if mb:
             return mb
-    return sh("git", "rev-parse", "HEAD~1") or "HEAD"
+    return git("rev-parse", "HEAD~1") or "HEAD"
 
 
 def path_matches(path, pattern):
@@ -63,7 +72,7 @@ def main():
     base = args.base or default_base()
     labels = {l.strip() for l in args.labels.split(",") if l.strip()}
 
-    numstat = sh("git", "diff", "--numstat", base, "HEAD")
+    numstat = git("diff", "--numstat", base, "HEAD", required=True)
     if not numstat:
         print(f"No changes vs {base}.")
         return

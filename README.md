@@ -139,7 +139,7 @@ The same three tiers map onto any AI-assisted decision — strategy, hiring, a c
 | 🟡 Medium | tactics, prioritization, customer-facing material, hiring criteria | AI reviews, then a human glances / sleeps on it |
 | 🔴 High | strategy, pricing, people, irreversible legal / financial / brand calls | AI advises only — a human decides |
 
-> **Honest scope:** the code gate is the part that's been run hard (see [`docs/rationale.md`](docs/rationale.md)). The decision mapping is the same shape generalized — a direction, not a validated playbook for every domain. Derive your own tiers from what's reversible in *your* work. Full treatment in [`docs/beyond-code.md`](docs/beyond-code.md).
+> **Honest scope:** the code gate is the part that's actually been exercised — run and corrected in the open (see [`docs/rationale.md`](docs/rationale.md)). The decision mapping is the same shape generalized — a direction, not a validated playbook for every domain. Derive your own tiers from what's reversible in *your* work. Full treatment in [`docs/beyond-code.md`](docs/beyond-code.md).
 
 ## Why this exists
 

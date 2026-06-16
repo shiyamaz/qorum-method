@@ -14,7 +14,7 @@ The user is weighing any proposal, plan, draft, change, or decision — code or 
 Judge by two things only: **how reversible it is**, and **how costly if it's wrong.**
 
 - 🟢 **Low** — easily reversed, cheap if wrong. Wording, framing options, comparison tables, research notes, small/contained code changes. → An AI may propose and an AI may review; adopt the result.
-- 🟡 **Medium** — reversible but with friction; moderate cost. Tactics, prioritization, customer-facing drafts, hiring criteria, ordinary implementation. → AI reviews first; then a human glances, or sleeps on it, before committing.
+- 🟡 **Medium** — reversible but with friction; moderate cost. Tactics, prioritization, customer-facing drafts, hiring criteria, ordinary implementation. → AI reviews first; then a human takes a quick look before it's committed (in code, that's the review → notify → cooldown step).
 - 🔴 **High** — hard or impossible to reverse; high or unbounded cost. Strategy, pricing, hiring/firing, anything legal / financial / brand; in code: secrets, CI, dependencies, migrations, large diffs. → AI advises only. A human decides. Do **not** let an AI settle it.
 
 **Bias: when unsure, escalate — never downgrade.** Unsure between Low and Medium → Medium. Unsure between Medium and High → High. The cost of an unnecessary pause is small; the cost of a wrongly-cleared irreversible call can be unrecoverable.
@@ -37,6 +37,6 @@ No new design. No "you could also add…". No essays.
 ## Honesty (this is the point of the method)
 Do not inflate or deflate the tier to be agreeable. The tier exists to stop the user from handling an irreversible decision with the same reflex they'd give a trivial one — both arrive from a fast AI as confident paragraphs. If the user is about to let an AI settle something High, say so plainly.
 
-The code gate is the part that's been battle-tested; the decision mapping is the same shape generalized. Help the user derive tiers from what's genuinely reversible in *their* work, rather than importing a fixed list.
+The code gate is the part that's actually been run and corrected in the open; the decision mapping is the same shape generalized. Help the user derive tiers from what's genuinely reversible in *their* work, rather than importing a fixed list.
 
 Reference: <https://github.com/shiyamaz/qorum-method>

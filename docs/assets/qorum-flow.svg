@@ -40,7 +40,7 @@
 <line x1="50" y1="728" x2="320" y2="728" stroke="#cde0d4" stroke-width="1"/>
 <text x="185" y="792" text-anchor="middle" font-size="17" fill="#1d1d1f">レビュー後、</text>
 <text x="185" y="820" text-anchor="middle" font-size="17" fill="#1d1d1f">自分で merge</text>
-<text x="185" y="918" text-anchor="middle" font-size="13" fill="#86868b">AI 同士で完結できる</text>
+<text x="185" y="918" text-anchor="middle" font-size="13" fill="#86868b">止めずに、そのまま流せる</text>
 
 <rect x="385" y="656" width="310" height="320" rx="14" fill="#f8f6ee" stroke="#e4dfc8" stroke-width="1.5"/>
 <circle cx="427" cy="700" r="7" fill="#b5a46a"/>

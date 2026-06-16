@@ -30,7 +30,7 @@ What survived contact with reality was narrow and boring — which is what makes
 
 3. **The reviewer's power must be bounded by what it can clear.** An AI reviewer that can approve a
    protected-path change is not a reviewer; it's a liability with a green checkmark. So: it may clear
-   the safe tiers and is *structurally forbidden* from clearing the dangerous one. The human stays in
+   the safe tiers and is *not allowed* — by rule, and structurally once you add branch protection — to clear the dangerous one. The human stays in
    the loop precisely — and only — where it matters.
 
 4. **The bias is always toward the safer tier.** When in doubt, escalate. The cost of an unnecessary
